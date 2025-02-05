@@ -5,6 +5,7 @@ import { useState, useRef } from "react";
 import { io } from "socket.io-client";
 
 const backendUrl = process.env.APP_BACKEND_URL;
+console.log(backendUrl);
 const socket = io(backendUrl);
 let userId = localStorage.getItem("userId");
 if (!userId) {
