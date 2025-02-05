@@ -5,7 +5,7 @@ import { useState, useRef } from "react";
 import { io } from "socket.io-client";
 
 const backendUrl = import.meta.env.VITE_APP_BACKEND_URL;
-console.log(backendUrl);
+
 const socket = io(backendUrl);
 let userId = localStorage.getItem("userId");
 if (!userId) {
@@ -27,7 +27,7 @@ function Home() {
       data = data.map((pdf) => pdf  + '?userId=' + userId);
       setPDFs(data);
     });
-    console.log(userId)
+
     socket.on("statusBackend", (data) => {
       setStatus(data);
  
