@@ -1,0 +1,119 @@
+.overlay {
+    background: linear-gradient(90deg, #717171, #000000);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1.5s ease-out;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: fixed;
+    height: 6.5rem;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    width: 100%;
+    max-width: 1200px;
+    position: sticky;
+    box-sizing: border-box;
+}
+
+.menu {
+    position: fixed;
+    top: 6.5rem;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(54, 53, 53, 1), rgba(0, 0, 0, 1)); /* Leicht transparente schwarze Hintergrundfarbe */
+    flex-direction: column;
+    align-items: center;
+    transform: translateX(100%);
+    transition: transform 0.4s ease-in-out; /* Sanfte Animation */
+    z-index: 2;
+    display: none;
+    overflow: hidden;
+}
+
+.show-navbar {
+    transform: translateX(0); /* Menü einblenden */
+    display: flex;
+}
+
+.menu-link {
+    margin: 1rem 0;
+    color: #ffffff;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    font-weight: bold;
+}
+
+.menu-link:active {
+    color: #ff7474;
+}
+
+.nav-links {
+    justify-content: right;
+    align-items: center;
+    margin-bottom: 1rem;
+    display: none;
+}
+
+.nav-link {
+    margin-right: 1.5rem;
+    color: #ffffff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #ff7474;
+}
+
+.logo {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    /* margin-bottom: 1rem; */
+}
+
+.logo img {
+    width: 120px;
+    height: auto;
+    /* animation: rotate 2s infinite alternate; */
+}
+
+@media (min-width: 768px) {
+    .nav-links {
+        display: block;
+    }
+    .menu {
+        display: none;
+    }
+    .menu-button {
+        display: none;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
