@@ -10,6 +10,7 @@ if (!userId) {
     userId = crypto.randomUUID();
     localStorage.setItem("userId", userId);
 }
+socket.emit("register", userId);
 
 
 function Home() {
@@ -24,8 +25,6 @@ function Home() {
       data = data.map((pdf) => pdf  + '?userId=' + userId);
       setPDFs(data);
     });
-    let userId = localStorage.getItem("userId");
-    socket.emit("register", userId);
     console.log(userId)
     socket.on("statusBackend", (data) => {
       setStatus(data);
