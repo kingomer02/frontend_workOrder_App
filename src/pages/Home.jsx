@@ -4,7 +4,8 @@ import PDFPreview from "../components/PdfPreview";
 import { useState, useRef } from "react";
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:3000");
+const backendUrl = process.env.APP_BACKEND_URL;
+const socket = io(backendUrl);
 let userId = localStorage.getItem("userId");
 if (!userId) {
     userId = crypto.randomUUID();
