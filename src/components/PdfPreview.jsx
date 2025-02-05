@@ -6,7 +6,7 @@ import { Document, Page } from "react-pdf";
 
 import { pdfjs } from "react-pdf";
 
-const backendUrl = process.env.APP_BACKEND_URL;
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 // Worker korrekt setzen:
 pdfjs.GlobalWorkerOptions.workerSrc = backendUrl + "/pdf.worker.min.mjs";
 
