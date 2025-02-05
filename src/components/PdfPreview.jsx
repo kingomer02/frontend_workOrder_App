@@ -6,8 +6,9 @@ import { Document, Page } from "react-pdf";
 
 import { pdfjs } from "react-pdf";
 
+const backendUrl = process.env.APP_BACKEND_URL;
 // Worker korrekt setzen:
-pdfjs.GlobalWorkerOptions.workerSrc = "http://localhost:5173/pdf.worker.min.mjs";
+pdfjs.GlobalWorkerOptions.workerSrc = backendUrl + "/pdf.worker.min.mjs";
 
 function PDFPreview({ file }) {
 
@@ -16,15 +17,15 @@ function PDFPreview({ file }) {
             <p className="file-title">Work Order {file.split("_")[0]}</p>
             <div className="pdf-preview">
                 <Document 
-                    file={"http://localhost:3000/pdfs/" + file}>
+                    file={`${backendUrl}/pdfs/${file}`}>
                     <Page pageNumber={1} width={300}/>
                 </Document>
             </div>
             <div className="pdf-buttons">
-                <a href={"http://localhost:3000/download/" + file} download="work-order.pdf">
+                <a href={backendUrl + "/download/" + file} download="work-order.pdf">
                     <button className="btn">📥 Download</button>
                 </a>
-                <a href={"http://localhost:3000/pdfs/" + file} target="_blank" rel="noopener noreferrer">
+                <a href={backendUrl + "/pdfs/" + file} target="_blank" rel="noopener noreferrer">
                     <button className="btn">👀 PDF anzeigen</button>
                 </a>
             </div>
